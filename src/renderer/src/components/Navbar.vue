@@ -1,5 +1,5 @@
 <template>
-    <div class="navbar bg-base-100">
+    <div class="navbar bg-base-100 absolute">
         <div class="navbar-start">
             <router-link to="/" class="btn normal-case text-xl">Sistema de Entradas</router-link>
         </div>
