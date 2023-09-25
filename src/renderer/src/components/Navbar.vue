@@ -5,7 +5,7 @@
         </div>
         <div class="navbar-center text-xl">Centro de Información</div>
         <div class="navbar-end">
-            <a class="btn btn-primary btn-sm">Link</a>
+            <router-link class="btn btn-primary btn-sm">Hero</router-link>
         </div>
     </div>
 </template>

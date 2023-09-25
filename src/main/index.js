@@ -1,8 +1,11 @@
-import { app, shell, BrowserWindow } from 'electron'
+import { app, shell, BrowserWindow, Menu } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
+import url from 'url'
 
+
+let aboutWindow
 function createWindow() {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
@@ -16,6 +19,9 @@ function createWindow() {
       sandbox: false
     }
   })
+
+  const mainMenu = Menu.buildFromTemplate(templateMenu)
+  Menu.setApplicationMenu(mainMenu)
 
   mainWindow.on('ready-to-show', () => {
     mainWindow.maximize()
@@ -36,6 +42,48 @@ function createWindow() {
   }
 }
 
+const templateMenu = [{
+  label: 'File',
+  submenu: [{
+    label: "Salir",
+    click() {
+      console.log("Hola");
+    }
+  }]
+},
+{
+  label: "Vista",
+  submenu: [{
+    label: "Recargar",
+    accelerator: 'Ctrl+R'
+  }, {
+    label: "Pantalla completa",
+    accelerator: "F11"
+  }]
+},
+{
+  label: "Ayuda",
+  submenu: [{
+    label: "Acerca De"
+    , click() {
+      acercaDeWindow()
+    }
+  }]
+}
+]
+
+function acercaDeWindow() {
+  aboutWindow = new BrowserWindow({
+    width: 300,
+    height: 200,
+    title: "Acerca de",
+  })
+  aboutWindow.setMenu(null)
+  aboutWindow.loadFile(join(__dirname, './about.html'))
+  aboutWindow.on('closed', () => {
+    aboutWindow = null;
+  })
+}
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
