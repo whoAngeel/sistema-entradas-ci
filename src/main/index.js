@@ -47,7 +47,7 @@ const templateMenu = [{
   submenu: [{
     label: "Salir",
     click() {
-      console.log("Hola");
+      app.quit()
     }
   }]
 },
@@ -55,10 +55,12 @@ const templateMenu = [{
   label: "Vista",
   submenu: [{
     label: "Recargar",
-    accelerator: 'Ctrl+R'
+    accelerator: 'Ctrl+R',
+    role: 'reload'
   }, {
     label: "Pantalla completa",
-    accelerator: "F11"
+    accelerator: "F11",
+    role: 'togglefullscreen'
   }]
 },
 {
@@ -66,6 +68,7 @@ const templateMenu = [{
   submenu: [{
     label: "Acerca De"
     , click() {
+      //
       acercaDeWindow()
     }
   }]
@@ -79,9 +82,28 @@ function acercaDeWindow() {
     title: "Acerca de",
   })
   aboutWindow.setMenu(null)
-  aboutWindow.loadFile(join(__dirname, './about.html'))
+  console.log(join(__dirname, './about.html'));
+  if (is.dev) {
+    aboutWindow.loadFile(join(__dirname, './about.html'))
+  } else {
+    aboutWindow.loadFile(join(__dirname, './about.html'))
+  }
   aboutWindow.on('closed', () => {
     aboutWindow = null;
+  })
+}
+
+if (process.env.NODE_ENV != 'production') {
+  templateMenu.push({
+    label: "DevTools",
+    submenu: [{
+      label: "Show/Hide DevTools",
+      click(item, focusedWindow) {
+        focusedWindow.toggleDevTools()
+      }
+    }, {
+      role: 'reload'
+    }]
   })
 }
 // This method will be called when Electron has finished
