@@ -7,40 +7,28 @@ module.exports = {
   plugins: [require("daisyui")],
   daisyui: {
     themes: [
-      "light",
-      "dark",
-      "cupcake",
-      "bumblebee",
-      "emerald",
-      "corporate",
-      "synthwave",
-      "retro",
-      "cyberpunk",
-      "valentine",
-      "halloween",
-      "garden",
-      "forest",
-      "aqua",
-      "lofi",
-      "pastel",
-      "fantasy",
-      "wireframe",
-      "black",
-      "luxury",
-      "dracula",
-      "cmyk",
-      "autumn",
-      "business",
-      "acid",
-      "lemonade",
-      "night",
-      "coffee",
-      "winter",
-    ],
-    darkTheme: "dracula", // name of one of the included themes for dark mode
-    logs: true, // Shows info about daisyUI version and used config in the console when building your CSS
-  },
-  daisyui: {
+      {
+        mytheme: {
 
+          "primary": "#40edc4",
+
+          "secondary": "#dbea07",
+
+          "accent": "#fcabc1",
+
+          "neutral": "#281a2d",
+
+          "base-100": "#e4e6f1",
+
+          "info": "#31bbdd",
+
+          "success": "#118d6e",
+
+          "warning": "#dc9d09",
+
+          "error": "#f66071",
+        },
+      },
+    ],
   },
 }
