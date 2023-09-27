@@ -4,7 +4,7 @@ import Calendar from '../components/Calendar.vue';
 </script>
 <template>
     <main class="h-screen flex justify-around content-between items-center ">
-        <section class=" left-12 top-36  w-8/12 h-screen">
+        <section class=" left-12 top-36 w-8/12 h-screen md:h-3/4 ">
             <div class="grid grid-cols-3 gap-y-10 gap-x-10 h-full content-center ">
                 <Card carrera="Civil" />
                 <Card carrera="Quimica" />

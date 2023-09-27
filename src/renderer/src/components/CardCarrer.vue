@@ -1,8 +1,7 @@
 <template>
     <!-- <div class="flex content-center justify-center items-center"> -->
-    <div class="rounded-xl bg-base-200 text-primary-content  h-40 content-center py-2">
+    <div class="rounded-xl md:bg-base-300 text-primary-content md:h-28 lg:h-32 xl:h-40 content-center py-2">
         <h2 class="text-2xl font-bold text-primary-content text-center mb-2">{{ carrera }}</h2>
-
         <div class="flex w-full">
             <div class="stat items-center text-center flex-col w-1/3 ">
                 <span class="text-lg">Total:</span>
@@ -27,7 +26,6 @@
                     <span class="stat-value text-lg">3</span>
                     <button class=" btn btn-primary">
                         <font-awesome-icon icon="plus" />
-
                     </button>
                 </div>
             </div>
