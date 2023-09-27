@@ -7,16 +7,25 @@
         </div>
         <div class="flex content-center justify-center flex-col items-center w-1/2">
             <div class="flex justify-around content-center items-center w-full">
-                <button class=" btn btn-sm btn-accent ">-</button>
-                <span class="text-sm">H</span>
+                <button class=" btn btn-sm btn-accent">
+                    <font-awesome-icon icon="minus" />
+                </button>
+                <span class="text-base font-medium">H</span>
                 <span class="stat-value text-lg">233</span>
-                <button class=" btn btn-sm btn-primary">+</button>
+                <button class=" btn btn-primary">
+                    <font-awesome-icon icon="plus" />
+                </button>
             </div>
             <div class="flex mt-3 justify-around content-center items-center w-full">
-                <button class=" btn btn-sm btn-accent">-</button>
-                <span class="text-sm ">M</span>
-                <span class="stat-value text-lg">233</span>
-                <button class=" btn btn-sm btn-primary">+</button>
+                <button class=" btn btn-sm btn-accent">
+                    <font-awesome-icon icon="minus" />
+                </button>
+                <span class="text-base font-medium">M</span>
+                <span class="stat-value text-lg">3</span>
+                <button class=" btn btn-primary">
+                    <font-awesome-icon icon="plus" />
+
+                </button>
             </div>
         </div>
 
@@ -24,7 +33,7 @@
 </template>
 
 <script setup>
-import { defineProps } from 'vue'
+
 
 const props = defineProps(['carrera'])
 </script>
