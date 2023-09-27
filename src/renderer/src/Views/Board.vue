@@ -3,9 +3,9 @@ import Card from '../components/CardCarrer.vue'
 import Calendar from '../components/Calendar.vue';
 </script>
 <template>
-    <main class="h-screen flex justify-around content-between items-center bg-primary">
-        <section class=" left-12 top-36 bg-base-300 w-8/12 h-screen">
-            <div class="grid  grid-cols-3 gap-10 h-full content-center">
+    <main class="h-screen flex justify-around content-between items-center ">
+        <section class=" left-12 top-36  w-8/12 h-screen">
+            <div class="grid grid-cols-3 gap-y-10 gap-x-10 h-full content-center ">
                 <Card carrera="Civil" />
                 <Card carrera="Quimica" />
                 <Card carrera="Industrial" />
