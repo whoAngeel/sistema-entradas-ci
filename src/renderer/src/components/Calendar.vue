@@ -1,5 +1,5 @@
 <template>
-    <VDatePicker v-model="date" mode="date" />
+    <VDatePicker expanded v-model="date" mode="date" />
 </template>
 
 <script setup>
