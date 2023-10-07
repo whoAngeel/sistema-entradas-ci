@@ -1,6 +1,18 @@
 <script setup>
+import { onBeforeMount } from 'vue'
 import Card from '../components/CardCarrer.vue'
 import Calendar from '../components/Calendar.vue';
+import { storeToRefs } from 'pinia'
+import { useCounterEntersStoreStore } from '../stores/counterEnters.store'
+import { fetchRegistro } from '../backend/api'
+
+const store = useCounterEntersStoreStore()
+
+const { incrementCount } = store
+const { carrerasObject } = storeToRefs(store)
+
+
+
 </script>
 <template>
     <main class="h-screen flex justify-around content-between items-center ">
@@ -22,6 +34,8 @@ import Calendar from '../components/Calendar.vue';
             </div>
 
         </section>
+        <button class="btn " @click="fetchRegistro()">Fetch</button>
+
         <section class=" right-12 top-1/3 flex flex-col">
             <Calendar></Calendar>
             <div class="stats shadow mt-8">
@@ -30,6 +44,7 @@ import Calendar from '../components/Calendar.vue';
                     <div class="stat-title">Total del Dia</div>
                     <div class="stat-value">89,400</div>
                 </div>
+
 
             </div>
         </section>
