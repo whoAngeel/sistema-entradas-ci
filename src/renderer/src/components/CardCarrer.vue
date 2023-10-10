@@ -5,7 +5,7 @@
         <div class="flex w-full">
             <div class="stat items-center text-center  flex-col w-1/3 ">
                 <span class="text-lg">Total:</span>
-                <span class="text-lg stat-value">{{ 34 }}</span>
+                <span class="text-lg stat-value">{{ carrera.total }}</span>
             </div>
             <div class="flex content-center justify-center flex-col items-center w-2/3">
                 <div class="flex justify-between content-center items-center w-4/5">

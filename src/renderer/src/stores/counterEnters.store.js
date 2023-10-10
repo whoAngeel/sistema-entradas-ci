@@ -1,24 +1,62 @@
 import { defineStore, acceptHMRUpdate } from 'pinia'
-import { computed, ref, reactive } from 'vue'
+import { computed, ref, reactive, onBeforeMount } from 'vue'
+import axios from 'axios'
+import { useFetch } from '@vueuse/core'
 
 
-export const useCounterEntersStoreStore = defineStore('counterEnters.store', () => {
-    const count = ref(0)
-    const carreras = ref(['Civil', 'Química', "industrial", "Electrónica", "Administración", 'Gestión', 'Contaduria', 'Sistemas', 'Mecánica', 'Externo', 'Docente', 'Maestría'])
-    const carrerasObject = reactive({
-        date: new Date().toLocaleDateString('es-Es'),
-        carreras: []
-    })
-
-
-
-    function incrementCount() {
-        console.log('objeto: ', carrerasObject.value);
+export const useRegistrosStore = defineStore('registrosStore', () => {
+    const carreras = ref([])
+    // const totalDia = ref(0)
+    const registros = ref([])
+    const registro = ref({})
+    const totalDia = computed(() => {
+        return carreras.value.reduce((total, carrera) => {
+            return total + carrera.hombres + carrera.mujeres;
+        }, 0);
+    });
+    const fetch = async () => {
+        try {
+            const response = await axios.get('http://localhost:9000/api/entradas')
+            console.log(response.data);
+            carreras.value = response.data.carreras
+        } catch (error) {
+            console.log('Error al obtener los datos', error);
+        }
+    }
+    const fetchTotalDia = async () => {
+        try {
+            const response = await axios.get('http://localhost:9000/api/entradas')
+            // console.log(response.data);
+            totalDia.value = response.data.totalDia
+        } catch (error) {
+            console.log('Error al obtener los datos', error);
+        }
+    }
+    const fetchRegistro = async () => {
+        try {
+            const res = await axios.get('http://localhost:9000/api/entradas')
+            registro.value = res.data
+        } catch (error) {
+            console.log("error");
+        }
+    }
+    const fetchRegistros = async () => {
+        try {
+            const res = await axios.get('http://localhost:9000/api/entradas/all')
+            registros.value = res.data
+        } catch (error) {
+            console.log("Error registros");
+        }
     }
 
-    return { count, carreras, incrementCount, carrerasObject }
+    return {
+        carreras,
+        fetch,
+        totalDia,
+        fetchTotalDia,
+        registro,
+        fetchRegistro,
+        registros,
+        fetchRegistros
+    }
 })
-
-if (import.meta.hot) {
-    import.meta.hot.accept(acceptHMRUpdate(useCounterEntersStoreStore, import.meta.hot))
-}
