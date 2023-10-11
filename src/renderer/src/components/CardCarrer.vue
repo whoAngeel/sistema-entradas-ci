@@ -1,7 +1,7 @@
 <template>
     <!-- <div class="flex content-center justify-center items-center"> -->
     <div class="rounded-xl md:bg-base-300 md:h-28 lg:h-32 xl:h-40 content-center py-4 text-secondary-content ">
-        <h2 class="text-2xl font-bold text-secondary-content text-center mb-2">{{ carrera }}</h2>
+        <h2 class="text-2xl font-bold text-secondary-content text-center mb-2">{{ carrera.nombre }}</h2>
         <div class="flex w-full">
             <div class="stat items-center text-center  flex-col w-1/3 ">
                 <span class="text-lg">Total:</span>
@@ -13,7 +13,7 @@
                         <font-awesome-icon icon="minus" />
                     </button>
                     <span class="text-base font-medium">H</span>
-                    <span class="stat-value text-lg">233</span>
+                    <span class="stat-value text-lg">{{ carrera.hombres }}</span>
                     <button class=" btn btn-primary btn-sm">
                         <font-awesome-icon icon="plus" />
                     </button>
@@ -23,7 +23,7 @@
                         <font-awesome-icon icon="minus" />
                     </button>
                     <span class="text-base font-medium">M</span>
-                    <span class="stat-value text-lg">3</span>
+                    <span class="stat-value text-lg">{{ carrera.mujeres }}</span>
                     <button class=" btn btn-primary btn-sm">
                         <font-awesome-icon icon="plus" />
                     </button>

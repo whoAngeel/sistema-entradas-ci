@@ -2,9 +2,8 @@
 import { onBeforeMount, onMounted, watchEffect, ref } from 'vue'
 import Card from '../components/CardCarrer.vue'
 import Calendar from '../components/Calendar.vue';
-import { storeToRefs } from 'pinia'
 import { useRegistrosStore } from '../stores/counterEnters.store'
-import { fetchRegistro } from '../backend/api'
+import axios from 'axios'
 
 const store = useRegistrosStore()
 
@@ -68,7 +67,38 @@ onMounted(() => {
     <main class="h-screen flex justify-around content-between items-center ">
         <section class=" left-12 top-36 w-8/12 h-screen md:h-3/4 ">
             <div class="grid grid-cols-3 gap-y-10 gap-x-10 h-full content-center ">
-                <Card v-for="carrera in store.carreras" :key="carrera.id" carrera="carrera" />
+                <div v-for="carrera in store.carreras" :id="carrera.id"
+                    class="rounded-xl md:bg-base-300 md:h-28 lg:h-32 xl:h-32 content-center py-2 text-secondary-content pb-2">
+                    <h2 class="text-xl font-bold text-secondary-content text-center">{{ carrera.nombre }}</h2>
+                    <div class="flex w-full">
+                        <div class="stat items-center text-center  flex-col w-1/3 text-base ">
+                            <span class="">Total:</span>
+                            <span class="text-2xl font-bold">{{ carrera.total }}</span>
+                        </div>
+                        <div class="flex content-center justify-center flex-col items-center w-2/3">
+                            <div class="flex justify-between content-center items-center w-4/5">
+                                <button class=" btn btn-accent btn-xs" @click="decrementarHombres(carrera)">
+                                    <font-awesome-icon icon="minus" />
+                                </button>
+                                <span class="text-base font-medium">H</span>
+                                <span class=" text-lg">{{ carrera.hombres }}</span>
+                                <button class=" btn btn-primary btn-xs" @click="incrementarHombres(carrera)">
+                                    <font-awesome-icon icon="plus" />
+                                </button>
+                            </div>
+                            <div class="flex mt-3 justify-between content-center items-center w-4/5">
+                                <button class=" btn btn-accent btn-xs" @click="decrementarMujeres(carrera)">
+                                    <font-awesome-icon icon="minus" />
+                                </button>
+                                <span class="text-base font-medium">M</span>
+                                <span class=" text-lg">{{ carrera.mujeres }}</span>
+                                <button class=" btn btn-primary btn-xs" @click="incrementarMujeres(carrera)">
+                                    <font-awesome-icon icon="plus" />
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
             </div>
 
@@ -79,8 +109,8 @@ onMounted(() => {
             <div class="stats shadow mt-8">
 
                 <div class="stat">
-                    <div class="stat-title">Total del Dia</div>
-                    <div class="stat-value">{{ store.totalDia }}</div>
+                    <div class="stat-title text-3xl">Total del Dia</div>
+                    <div class="stat-value text-6xl">{{ store.totalDia }}</div>
                 </div>
 
 
