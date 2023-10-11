@@ -1,7 +1,7 @@
 import Board from '../Views/Board.vue'
 import Hero from '../Views/Hero.vue'
-
-import {createRouter, createWebHistory} from 'vue-router'
+import GraphAll from '../Views/GraphAll.vue'
+import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
     {
@@ -11,6 +11,9 @@ const routes = [
     {
         path: '/hero',
         component: Hero
+    }, {
+        path: '/graph-all',
+        component: GraphAll
     }
 ]
 
@@ -19,4 +22,4 @@ const router = createRouter({
     routes
 })
 
-export {router}
+export { router }
