@@ -23,15 +23,7 @@ export const useRegistrosStore = defineStore('registrosStore', () => {
             console.log('Error al obtener los datos', error);
         }
     }
-    const fetchTotalDia = async () => {
-        try {
-            const response = await axios.get('http://localhost:9000/api/entradas')
-            // console.log(response.data);
-            totalDia.value = response.data.totalDia
-        } catch (error) {
-            console.log('Error al obtener los datos', error);
-        }
-    }
+
     const fetchRegistro = async () => {
         try {
             const res = await axios.get('http://localhost:9000/api/entradas')
@@ -53,7 +45,6 @@ export const useRegistrosStore = defineStore('registrosStore', () => {
         carreras,
         fetch,
         totalDia,
-        fetchTotalDia,
         registro,
         fetchRegistro,
         registros,

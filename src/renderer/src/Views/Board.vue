@@ -59,13 +59,17 @@ const decrementarMujeres = (carrera) => {
 
 onMounted(() => {
     store.fetch()
-    store.fetchTotalDia()
 })
 
 </script>
 <template>
     <main class="h-screen flex justify-around content-between items-center ">
-        <section class=" left-12 top-36 w-8/12 h-screen md:h-3/4 ">
+        <section v-if="store.carreras.length === 0">
+            <h2 class="text-3xl">
+                Hubo un problema al cargar el registro
+            </h2>
+        </section>
+        <section v-else class=" left-12 top-36 w-8/12 h-screen md:h-3/4 ">
             <div class="grid grid-cols-3 gap-y-10 gap-x-10 h-full content-center ">
                 <div v-for="carrera in store.carreras" :id="carrera.id"
                     class="rounded-xl md:bg-base-300 md:h-28 lg:h-32 xl:h-32 content-center py-2 text-secondary-content pb-2">
@@ -112,8 +116,6 @@ onMounted(() => {
                     <div class="stat-title text-3xl">Total del Dia</div>
                     <div class="stat-value text-6xl">{{ store.totalDia }}</div>
                 </div>
-
-
             </div>
         </section>
     </main>
