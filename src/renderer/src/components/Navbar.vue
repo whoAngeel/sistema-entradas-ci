@@ -5,8 +5,8 @@
         </div>
         <div class="navbar-center text-xl">Centro de Información</div>
         <div class="navbar-end">
-            <router-link to="/hero" class="btn btn-primary btn-sm">Hero</router-link>
-            <router-link to="/graph-all" class="btn btn-primary btn-sm">Hero</router-link>
+            <!-- <router-link to="/hero" class="btn btn-primary btn-sm">Hero</router-link> -->
+            <router-link to="/graph-all" class="btn btn-primary btn-sm">Todos Los Registros</router-link>
         </div>
     </div>
 </template>

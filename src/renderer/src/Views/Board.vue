@@ -27,7 +27,7 @@ const decrementarHombres = (carrera) => {
         axios.patch(`${API_URL}dec/${carrera.name}/hombres`).then(res => {
             console.log(res.data);
         }).catch(err => {
-            console.log("Ha ocurrido un error al actualizar");
+            console.log("Ha ocurrido un error al actualizar: Error" + err);
         })
         // store.fetchTotalDia(); // Actualizar el total del día
     }
